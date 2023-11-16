@@ -17,4 +17,4 @@ Works for Android phones. Tested on Linux/Ubuntu computer. This is not affiliate
 Execute `automate_save.py` with python for the script. The other one `bereal_change_time.py` can be used to add meta-informations about the time to the images.
 
 ## Known limitations
-This only works for Android. Some individual settings need to be taken (inserting pixel positions) and this script needs to be executed from the command line. A depiction of the locations can be found in `example-image.png`
+This only works for Android. Some individual settings need to be taken (inserting pixel positions) and this script needs to be executed from the command line. A depiction of the locations can be found in `example-image.png`. In case it crashes just restart and continue.
