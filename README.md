@@ -1,7 +1,7 @@
 # Export your image diary from BeReal
 
 I was tired to every day press download on my BeReals in order to have them locally so I created these scripts to help me with it.
-Works for Android phones. Tested on Linux/Ubuntu computer. This is not affiliated or endorsed by BeReal, use at your own risk.
+Works for Android phones. Tested on Linux/Ubuntu computer. This is not affiliated with or endorsed by [BeReal](https://bereal.com/), use at your own risk.
 
 ## Requirements
 1) Enable USB-debugging on Android phone and connect to computer
