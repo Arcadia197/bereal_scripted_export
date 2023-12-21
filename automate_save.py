@@ -98,17 +98,22 @@ def bereal_swap_camera(delay=100, debug=False):
 # download
 def bereal_download(delay=1000, debug=False):
     adb_click(loc_open_settings[0], loc_open_settings[1], debug=False)
+    time.sleep(delay*1e-3)  # sleep to give the system some time
     adb_click(loc_download[0], loc_download[1], debug=False)
     if debug: print(f"   BeReal: Downloaded")
     time.sleep(delay*1e-3)  # sleep to give the system some time
 
 
 # get all files which are listed under bereal in download folder
-def bereal_adb_list_saved(loc="sdcard/Download", bereal_prefix="be"):
+def bereal_adb_list_saved(loc="sdcard/Download/", bereal_prefix="be"):
     loc_search = os.path.join(loc, f"{bereal_prefix}*")
-    res = subprocess.run(["adb", "shell", "ls", loc_search], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    if res.returncode == 1: return None
-    else: return res.stdout.decode("utf-8").split("\n")[:-1]
+    command = ["adb", "shell", "ls", loc_search]
+    try:
+        result = subprocess.check_output(command, stderr=subprocess.PIPE, text=True)
+        return result.strip().split("\n")
+    except subprocess.CalledProcessError as e:
+        print(f"Error: {e.stderr}")
+        return None
 
 
 # transfer several files over to the location folder and delete them afterwards
